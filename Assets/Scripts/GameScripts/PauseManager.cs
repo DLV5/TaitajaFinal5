@@ -24,10 +24,10 @@ public class PauseManager : MonoBehaviour
             case GameState.Paused:
                 Pause();
                 break;
-            case GameState.Win:
+            case GameState.FirstPlayerWin:
                 Pause();
                 break;
-            case GameState.Lost:
+            case GameState.SecondPlayerWin:
                 Pause();
                 break;
         }

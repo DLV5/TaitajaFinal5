@@ -7,7 +7,7 @@ public class Health : MonoBehaviour, IDamagable
     public static event Action<int> OnHealthChanged;
     public static event Action OnDied;
 
-    [SerializeField] private ObjectHUD _objectHUD;
+    [field: SerializeField] public ObjectHUD ObjectHUD { get; set; }
 
     [SerializeField] private int _maxHealth;
 
@@ -36,7 +36,7 @@ public class Health : MonoBehaviour, IDamagable
     private void Start()
     {
         CurrentHealth = _maxHealth;
-        _objectHUD.SetHUD(_maxHealth, _currentHealth);
+        ObjectHUD.SetHUD(_maxHealth, _currentHealth);
     }
 
     public void TakeDamage(int damage)

@@ -1,11 +1,13 @@
-//This script should be executed at -120 in project settings
-
 using System;
 using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
     public event Action<GameState> OnGameStateChanged;
+
+    [SerializeField] private int _maxTurns;
+
+    private int _currentTurn;
 
     private GameState _currentState;
 

@@ -51,10 +51,10 @@ public class BackgroundBlur : MonoBehaviour
             case GameState.Paused:
                 Blur();
                 break;
-            case GameState.Win:
+            case GameState.FirstPlayerWin:
                 Blur();
                 break;
-            case GameState.Lost:
+            case GameState.SecondPlayerWin:
                 Blur();
                 break;
         }

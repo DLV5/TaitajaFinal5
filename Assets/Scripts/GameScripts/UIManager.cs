@@ -1,13 +1,36 @@
+using TMPro;
 using UnityEngine;
 
 public class UIManager : MonoBehaviour
 {
+    [SerializeField] private TMP_Text _announcerTextLine1;
+    [SerializeField] private TMP_Text _announcerTextLine2;
+
+
+    [SerializeField] private GameObject[] _winIndicatorGrids;
+    [SerializeField] private GameObject _winIndicator;
+
     private GameObject _loseScreen;
     private GameObject _winScreen;
     private GameObject _pauseScreen;
 
+    public TMP_Text LevelTimer {  get; set; }
+
+    public ObjectHUD[] HealthSliders { get; private set; }
+
+    public static UIManager Instance { get; private set; }
+
     private void Awake()
     {
+        if (Instance != null && Instance != this)
+        {
+            Destroy(gameObject);
+        }
+        else
+        {
+            Instance = this;
+        }
+
         _loseScreen = GameObject.Find("LoseScreen");
         _winScreen = GameObject.Find("WinScreen");
         _pauseScreen = GameObject.Find("PauseScreen");
@@ -18,6 +41,7 @@ public class UIManager : MonoBehaviour
         HideScreen(_loseScreen);
         HideScreen(_winScreen);
         HideScreen(_pauseScreen);
+        OnNewTurnStarted();
     }
 
     private void OnEnable()
@@ -30,23 +54,38 @@ public class UIManager : MonoBehaviour
         GameManager.Instance.OnGameStateChanged -= OnGameStateChangedEventHandelr;
     }
 
+    public void AddWinIndicator(int player)
+    {
+        GameObject go = Instantiate(_winIndicator, transform.position, Quaternion.identity);
+        go.transform.SetParent(_winIndicatorGrids[player].transform);
+    }
+
     private void OnGameStateChangedEventHandelr(GameState state)
     {
         switch (state)
         {
+            case GameState.NewTurnStarted:
+                OnNewTurnStarted();
+                break;
             case GameState.Playing:
                 HideScreen(_pauseScreen); 
                 break;
             case GameState.Paused:
                 ShowScreen(_pauseScreen);
                 break;
-            case GameState.Win:
+            case GameState.FirstPlayerWin:
                 ShowScreen(_winScreen);
                 break;
-            case GameState.Lost:
+            case GameState.SecondPlayerWin:
                 ShowScreen(_loseScreen);
                 break;
         }
+    }
+
+    private void OnNewTurnStarted()
+    {
+        HideScreen(_announcerTextLine1.gameObject);
+        HideScreen(_announcerTextLine2.gameObject);
     }
 
     private void ShowScreen(GameObject screen) => screen.SetActive(true);

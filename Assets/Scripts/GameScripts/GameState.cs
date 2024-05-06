@@ -3,8 +3,9 @@
 [Serializable]
 public enum GameState
 {
+    NewTurnStarted,
     Playing,
     Paused,
-    Win,
-    Lost
+    FirstPlayerWin,
+    SecondPlayerWin
 }
