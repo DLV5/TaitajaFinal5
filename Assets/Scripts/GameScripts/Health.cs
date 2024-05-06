@@ -4,10 +4,11 @@ using UnityEngine;
 
 public class Health : MonoBehaviour, IDamagable
 {
-    public static event Action<int> OnHealthChanged;
     public static event Action OnDied;
 
-    [field: SerializeField] public ObjectHUD ObjectHUD { get; set; }
+    private static int _playerID = 0;
+
+    public ObjectHUD ObjectHUD { get; set; }
 
     [SerializeField] private int _maxHealth;
 
@@ -24,13 +25,19 @@ public class Health : MonoBehaviour, IDamagable
         {
             _currentHealth = value;
 
-            OnHealthChanged(_currentHealth);
+            ObjectHUD.SetHealth(_currentHealth);
 
             if (_currentHealth <= 0)
             {
                 OnDied?.Invoke();
             }
         }
+    }
+
+    private void Awake()
+    {
+        ObjectHUD = FindObjectsByType<ObjectHUD>(FindObjectsSortMode.InstanceID)[_playerID];
+        _playerID++;
     }
 
     private void Start()

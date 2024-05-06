@@ -1,3 +1,4 @@
+using System.Collections;
 using TMPro;
 using UnityEngine;
 
@@ -14,7 +15,7 @@ public class UIManager : MonoBehaviour
     private GameObject _winScreen;
     private GameObject _pauseScreen;
 
-    public TMP_Text LevelTimer {  get; set; }
+    [field: SerializeField] public TMP_Text LevelTimer {  get; set; }
 
     public ObjectHUD[] HealthSliders { get; private set; }
 
@@ -80,6 +81,13 @@ public class UIManager : MonoBehaviour
                 ShowScreen(_loseScreen);
                 break;
         }
+    }
+
+    private IEnumerator ShowMessagesBeforeTurn()
+    {
+        _announcerTextLine1.text = "Round 1";
+
+        yield return new WaitForSeconds(1);
     }
 
     private void OnNewTurnStarted()

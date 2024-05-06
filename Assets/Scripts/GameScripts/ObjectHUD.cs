@@ -10,11 +10,6 @@ public class ObjectHUD : MonoBehaviour
 
     private bool _wasObjectHealed = false;
 
-    private void OnEnable()
-    {
-        Health.OnHealthChanged += SetHealth;
-    }
-
     private void Update()
     {
         if (Mathf.Abs(_healthSlider.value - _easeHealthSlider.value) < 0.001f)
@@ -30,11 +25,6 @@ public class ObjectHUD : MonoBehaviour
         {
             _easeHealthSlider.value = Mathf.Lerp(_easeHealthSlider.value, _healthSlider.value, _easeLerpSpeed);
         }
-    }
-
-    private void OnDisable()
-    {
-        Health.OnHealthChanged -= SetHealth;
     }
 
     public void SetHUD(int maxHealth, int currentHealth)

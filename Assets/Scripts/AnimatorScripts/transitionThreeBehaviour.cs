@@ -21,6 +21,7 @@ public class transitionThreeBehaviour : StateMachineBehaviour
     // OnStateExit is called when a transition ends and the state machine finishes evaluating this state
     override public void OnStateExit(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
+        controller.ThirdAttackCollider.gameObject.SetActive(false);
         controller.IsAttacking = false;
     }
 

@@ -15,6 +15,7 @@ public class transitionTwoBehaviour : StateMachineBehaviour
     {
         if (controller.IsAttacking)
         {
+            controller.ThirdAttackCollider.gameObject.SetActive(true);
             animator.Play("Attack3");
         }
     }
@@ -22,6 +23,7 @@ public class transitionTwoBehaviour : StateMachineBehaviour
     // OnStateExit is called when a transition ends and the state machine finishes evaluating this state
     override public void OnStateExit(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
+        controller.SecondAttackCollider.gameObject.SetActive(false);
         controller.IsAttacking = false;
     }
 

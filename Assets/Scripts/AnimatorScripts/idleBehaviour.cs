@@ -1,5 +1,5 @@
-using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.InputSystem.XR;
 
 public class idleBehaviour : StateMachineBehaviour
 {
@@ -20,6 +20,7 @@ public class idleBehaviour : StateMachineBehaviour
         if (controller.IsAttacking)
         {
             controllerMovement.CanMove = false;
+            controller.FirstAttackCollider.gameObject.SetActive(true);
             animator.Play("Attack1");
         }
 

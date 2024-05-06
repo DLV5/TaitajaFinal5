@@ -5,9 +5,9 @@ public class PlayerAttackController : MonoBehaviour
 {
     [SerializeField] private Animator _animator;
 
-    [SerializeField] public GameObject _firstAttackCollider;
-    [SerializeField] public GameObject _secondAttackCollider;
-    [SerializeField] public GameObject _thirdAttackCollider;
+    [field: SerializeField] public GameObject FirstAttackCollider {  get; set; }
+    [field: SerializeField] public GameObject SecondAttackCollider { get; set; }
+    [field: SerializeField] public GameObject ThirdAttackCollider { get; set; }
 
     public bool IsAttacking { get; set; } = false;
 
