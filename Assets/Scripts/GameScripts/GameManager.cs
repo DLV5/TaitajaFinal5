@@ -27,6 +27,11 @@ public class GameManager : MonoBehaviour
         }
     }
 
+    private void Start()
+    {
+        ChangeGameState(GameState.NewTurnStarted);
+    }
+
     public void ChangeGameState(GameStateComponent state)
     {
         _currentState = state.GameState;

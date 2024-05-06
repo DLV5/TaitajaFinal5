@@ -1,43 +1,55 @@
+using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class PlayerSpawner : MonoBehaviour
 {
     [SerializeField] private Transform[] _spawnPositions;
 
-    [SerializeField] private GameObject[] _players;
+    [SerializeField] private GameObject[] _playersPrefabs;
 
-    private void OnEnable()
+    private List<PlayerInput> _spawnedPlayers = new List<PlayerInput>();
+
+    private PlayerInputManager _playerInputManager;
+
+    private void Awake()
     {
-        GameManager.Instance.OnGameStateChanged += OnGameStateChangedEventHandelr;
+        _playerInputManager = GameObject.Find("PlayerInputManager").GetComponent<PlayerInputManager>();
     }
 
-    private void OnDisable()
-    {
-        GameManager.Instance.OnGameStateChanged -= OnGameStateChangedEventHandelr;
-    }
+    //private void OnEnable()
+    //{
+    //    GameManager.Instance.OnGameStateChanged += OnGameStateChangedEventHandelr;
+    //}
 
-    private void OnGameStateChangedEventHandelr(GameState state)
+    //private void OnDisable()
+    //{
+    //    GameManager.Instance.OnGameStateChanged -= OnGameStateChangedEventHandelr;
+    //}
+
+    ////private void OnGameStateChangedEventHandelr(GameState state)
+    ////{
+    ////    switch (state)
+    ////    {
+    ////        case GameState.NewTurnStarted:
+    ////            CreatePlayers();
+    ////            break;
+    ////    }
+    ////}
+
+    public void SpawnPlayer(PlayerInput player)
     {
-        switch (state)
+        _spawnedPlayers.Add(player);
+
+        player.transform.position = _spawnPositions[_spawnedPlayers.Count - 1].position;
+
+        if(_spawnedPlayers.Count < _playersPrefabs.Length)
         {
-            case GameState.NewTurnStarted:
-                CreatePlayers();
-                break;
+            _playerInputManager.playerPrefab = _playersPrefabs[_spawnedPlayers.Count];
         }
-    }
-
-    public void SpawnPlayer()
-    {
-        Instantiate(_players[0], _spawnPositions[0].position, Quaternion.identity);
-    }
-
-    private void CreatePlayers()
-    {
-        for (int i = 0; i < _players.Length; i++)
+        else
         {
-            GameObject player = Instantiate(_players[i], _spawnPositions[i].position, Quaternion.identity);
 
-            player.GetComponent<Health>().ObjectHUD = UIManager.Instance.HealthSliders[i];
         }
     }
 }

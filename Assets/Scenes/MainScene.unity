@@ -349,12 +349,24 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_NotificationBehavior: 2
-  m_MaxPlayerCount: -1
+  m_MaxPlayerCount: 2
   m_AllowJoining: 1
   m_JoinBehavior: 0
   m_PlayerJoinedEvent:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1715326739}
+        m_TargetAssemblyTypeName: PlayerSpawner, Assembly-CSharp
+        m_MethodName: SpawnPlayer
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   m_PlayerLeftEvent:
     m_PersistentCalls:
       m_Calls: []
@@ -3068,9 +3080,7 @@ MonoBehaviour:
   _spawnPositions:
   - {fileID: 874346158}
   - {fileID: 519205249}
-  _players:
-  - {fileID: 4189230051186415888, guid: 8f418a6b4e2bebe4ebc289df44a25445, type: 3}
-  - {fileID: 4189230051186415888, guid: 8f418a6b4e2bebe4ebc289df44a25445, type: 3}
+  _playersPrefabs: []
 --- !u!1 &1775292243
 GameObject:
   m_ObjectHideFlags: 0
@@ -3106,6 +3116,7 @@ MonoBehaviour:
   - {fileID: 1135443996}
   - {fileID: 1283215552}
   _winIndicator: {fileID: 524958795976420842, guid: dabec5044ce2f814984ff403e8b4f986, type: 3}
+  <LevelTimer>k__BackingField: {fileID: 1795003001}
 --- !u!4 &1775292245
 Transform:
   m_ObjectHideFlags: 0
@@ -3356,7 +3367,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ef711ea6fde7d7c40b1e4675c199dfcb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _maxTurnTime: 30
+  _maxTurnTime: 60
 --- !u!1 &1806021510
 GameObject:
   m_ObjectHideFlags: 0

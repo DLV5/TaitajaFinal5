@@ -42,7 +42,6 @@ public class UIManager : MonoBehaviour
         HideScreen(_loseScreen);
         HideScreen(_winScreen);
         HideScreen(_pauseScreen);
-        OnNewTurnStarted();
     }
 
     private void OnEnable()
@@ -66,7 +65,7 @@ public class UIManager : MonoBehaviour
         switch (state)
         {
             case GameState.NewTurnStarted:
-                OnNewTurnStarted();
+                StartCoroutine(ShowMessagesBeforeTurn());
                 break;
             case GameState.Playing:
                 HideScreen(_pauseScreen); 
@@ -85,13 +84,33 @@ public class UIManager : MonoBehaviour
 
     private IEnumerator ShowMessagesBeforeTurn()
     {
+        ShowScreen(_announcerTextLine1.gameObject);
+        ShowScreen(_announcerTextLine2.gameObject);
+
+        _announcerTextLine2.text = "";
+
         _announcerTextLine1.text = "Round 1";
 
-        yield return new WaitForSeconds(1);
-    }
+        yield return new WaitForSeconds(2);
 
-    private void OnNewTurnStarted()
-    {
+        _announcerTextLine1.text = "Prepare to fight";
+
+        yield return new WaitForSeconds(1);
+
+        _announcerTextLine2.text = "3";
+
+        yield return new WaitForSeconds(1);
+
+        _announcerTextLine2.text = "2";
+
+        yield return new WaitForSeconds(1);
+
+        _announcerTextLine2.text = "1";
+
+        yield return new WaitForSeconds(1);
+
+        GameManager.Instance.ChangeGameState(GameState.Playing);
+
         HideScreen(_announcerTextLine1.gameObject);
         HideScreen(_announcerTextLine2.gameObject);
     }

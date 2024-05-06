@@ -3,7 +3,7 @@ using UnityEngine;
 
 public class Timer : MonoBehaviour
 {
-    [SerializeField] private int _maxTurnTime = 30;
+    [SerializeField] private int _maxTurnTime = 60;
 
     private bool _shoudCount = false;
 
@@ -30,7 +30,6 @@ public class Timer : MonoBehaviour
         {
             case GameState.NewTurnStarted:
                 ResetTimer();
-                _shoudCount = true;
                 break;
             case GameState.Playing:
                 _shoudCount = true;
