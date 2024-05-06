@@ -13,6 +13,9 @@ public class PlayerAttackController : MonoBehaviour
 
     public void Attack(InputAction.CallbackContext context)
     {
+        if (GameManager.Instance.CurrentState != GameState.Playing)
+            return;
+
         if (context.started)
         {
             IsAttacking = true;

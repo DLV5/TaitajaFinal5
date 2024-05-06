@@ -5,9 +5,10 @@ public class GameManager : MonoBehaviour
 {
     public event Action<GameState> OnGameStateChanged;
 
-    [SerializeField] private int _maxTurns;
+    [SerializeField] private int _maxWins = 2;
 
-    private int _currentTurn;
+    public int FirstPlayerWins { get; private set; } = 0;
+    public int SecondPlayerWins {get; private set; } = 0;
 
     private GameState _currentState;
 
@@ -29,18 +30,51 @@ public class GameManager : MonoBehaviour
 
     private void Start()
     {
-        ChangeGameState(GameState.NewTurnStarted);
+        ChangeGameState(GameState.WaitingPlayersToConnect);
     }
 
     public void ChangeGameState(GameStateComponent state)
     {
+        if(_currentState == GameState.FirstPlayerWin)
+        {
+            FirstPlayerWins++;
+        } 
+        
+        if(_currentState == GameState.SecondPlayerWin)
+        {
+            SecondPlayerWins++;
+        } 
+
+        if (FirstPlayerWins == _maxWins || SecondPlayerWins == _maxWins)
+        {
+            Debug.Log("Show end screen");
+            ChangeGameState(GameState.GameEnded);
+        }
+
         _currentState = state.GameState;
 
         OnGameStateChanged?.Invoke(_currentState);
+
     }
     
     public void ChangeGameState(GameState state)
     {
+        if (_currentState == GameState.FirstPlayerWin)
+        {
+            FirstPlayerWins++;
+        }
+
+        if (_currentState == GameState.SecondPlayerWin)
+        {
+            SecondPlayerWins++;
+        }
+
+        if (FirstPlayerWins == _maxWins || SecondPlayerWins == _maxWins)
+        {
+            Debug.Log("Show end screen");
+            ChangeGameState(GameState.GameEnded);
+        }
+
         _currentState = state;
 
         OnGameStateChanged?.Invoke(_currentState);

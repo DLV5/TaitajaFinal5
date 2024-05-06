@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Health : MonoBehaviour, IDamagable
 {
-    public static event Action OnDied;
+    public event Action<int> OnDied;
 
     private static int _playerID = 0;
 
@@ -29,7 +29,7 @@ public class Health : MonoBehaviour, IDamagable
 
             if (_currentHealth <= 0)
             {
-                OnDied?.Invoke();
+                OnDied?.Invoke(_playerID);
             }
         }
     }
@@ -40,10 +40,22 @@ public class Health : MonoBehaviour, IDamagable
         _playerID++;
     }
 
+    private void OnEnable()
+    {
+        OnDied += OnDiedHandler;
+        GameManager.Instance.OnGameStateChanged += OnGameStateChangedEventHandler;
+    }
+
     private void Start()
     {
         CurrentHealth = _maxHealth;
         ObjectHUD.SetHUD(_maxHealth, _currentHealth);
+    }
+
+    private void OnDisable()
+    {
+        OnDied -= OnDiedHandler;
+        GameManager.Instance.OnGameStateChanged -= OnGameStateChangedEventHandler;
     }
 
     public void TakeDamage(int damage)
@@ -55,10 +67,34 @@ public class Health : MonoBehaviour, IDamagable
         StartCoroutine(EnterAndExitInvincibility());
     }
 
+    private void OnGameStateChangedEventHandler(GameState state)
+    {
+        switch (state)
+        {
+            case GameState.NewTurnStarted:
+                CurrentHealth = _maxHealth;
+                ObjectHUD.SetHUD(_maxHealth, _currentHealth);
+                break;
+        }
+    }
+
     private IEnumerator EnterAndExitInvincibility()
     {
         _isInvincible = true;
         yield return new WaitForSeconds(_invincibilityTime);
         _isInvincible = false;
+    }
+
+    private void OnDiedHandler(int id)
+    {
+        switch(id)
+        {
+            case 1:
+                GameManager.Instance.ChangeGameState(GameState.SecondPlayerWin);
+                break;
+            case 2:
+                GameManager.Instance.ChangeGameState(GameState.FirstPlayerWin);
+                break;
+        }
     }
 }

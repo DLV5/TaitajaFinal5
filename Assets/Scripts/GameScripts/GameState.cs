@@ -3,9 +3,11 @@
 [Serializable]
 public enum GameState
 {
+    WaitingPlayersToConnect,
     NewTurnStarted,
     Playing,
     Paused,
     FirstPlayerWin,
-    SecondPlayerWin
+    SecondPlayerWin,
+    GameEnded
 }

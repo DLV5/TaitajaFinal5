@@ -1,9 +1,12 @@
+using System;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
 public class PlayerSpawner : MonoBehaviour
 {
+    public static event Action OnBothPlayersConnected;
+
     [SerializeField] private Transform[] _spawnPositions;
 
     [SerializeField] private GameObject[] _playersPrefabs;
@@ -17,25 +20,25 @@ public class PlayerSpawner : MonoBehaviour
         _playerInputManager = GameObject.Find("PlayerInputManager").GetComponent<PlayerInputManager>();
     }
 
-    //private void OnEnable()
-    //{
-    //    GameManager.Instance.OnGameStateChanged += OnGameStateChangedEventHandelr;
-    //}
+    private void OnEnable()
+    {
+        GameManager.Instance.OnGameStateChanged += OnGameStateChangedEventHandelr;
+    }
 
-    //private void OnDisable()
-    //{
-    //    GameManager.Instance.OnGameStateChanged -= OnGameStateChangedEventHandelr;
-    //}
+    private void OnDisable()
+    {
+        GameManager.Instance.OnGameStateChanged -= OnGameStateChangedEventHandelr;
+    }
 
-    ////private void OnGameStateChangedEventHandelr(GameState state)
-    ////{
-    ////    switch (state)
-    ////    {
-    ////        case GameState.NewTurnStarted:
-    ////            CreatePlayers();
-    ////            break;
-    ////    }
-    ////}
+    private void OnGameStateChangedEventHandelr(GameState state)
+    {
+        switch (state)
+        {
+            case GameState.NewTurnStarted:
+                SetPlayersPositionToSpawnPoints();
+                break;
+        }
+    }
 
     public void SpawnPlayer(PlayerInput player)
     {
@@ -49,7 +52,15 @@ public class PlayerSpawner : MonoBehaviour
         }
         else
         {
+            OnBothPlayersConnected?.Invoke();
+        }
+    }
 
+    private void SetPlayersPositionToSpawnPoints()
+    {
+        for (int i = 0; i < _spawnedPlayers.Count; i++)
+        {
+            _spawnedPlayers[i].gameObject.transform.position = _spawnPositions[i].position;
         }
     }
 }

@@ -15,11 +15,16 @@ public class PlayerController : MonoBehaviour
 
     public float Direction { get; private set; } = 0;
 
-    public bool CanMove { get; set; } = true;
+    public bool CanMove { get; set; } = false;
 
     private void Awake()
     {
         _rigidbody2D = GetComponent<Rigidbody2D>();
+    }
+
+    private void OnEnable()
+    {
+        GameManager.Instance.OnGameStateChanged += OnGameStateChangedEventHandelr;
     }
 
     private void Update()
@@ -40,6 +45,25 @@ public class PlayerController : MonoBehaviour
             return;
 
         _rigidbody2D.velocity = new Vector2(Direction * _speed, _rigidbody2D.velocity.y);
+    }
+
+
+    private void OnDisable()
+    {
+        GameManager.Instance.OnGameStateChanged -= OnGameStateChangedEventHandelr;
+    }
+
+    private void OnGameStateChangedEventHandelr(GameState state)
+    {
+        switch (state)
+        {
+            case GameState.NewTurnStarted:
+                CanMove = false;
+                break;
+            case GameState.Playing:
+                CanMove = true;
+                break;
+        }
     }
 
     public void Pause(InputAction.CallbackContext context)

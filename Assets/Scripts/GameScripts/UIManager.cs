@@ -2,6 +2,9 @@ using System.Collections;
 using TMPro;
 using UnityEngine;
 
+/// <summary>
+/// Controls all in game UI
+/// </summary>
 public class UIManager : MonoBehaviour
 {
     [SerializeField] private TMP_Text _announcerTextLine1;
@@ -11,8 +14,8 @@ public class UIManager : MonoBehaviour
     [SerializeField] private GameObject[] _winIndicatorGrids;
     [SerializeField] private GameObject _winIndicator;
 
-    private GameObject _loseScreen;
     private GameObject _winScreen;
+    [SerializeField] private TMP_Text _winText;
     private GameObject _pauseScreen;
 
     [field: SerializeField] public TMP_Text LevelTimer {  get; set; }
@@ -32,14 +35,12 @@ public class UIManager : MonoBehaviour
             Instance = this;
         }
 
-        _loseScreen = GameObject.Find("LoseScreen");
         _winScreen = GameObject.Find("WinScreen");
         _pauseScreen = GameObject.Find("PauseScreen");
     }
 
     private void Start()
     {
-        HideScreen(_loseScreen);
         HideScreen(_winScreen);
         HideScreen(_pauseScreen);
     }
@@ -47,11 +48,13 @@ public class UIManager : MonoBehaviour
     private void OnEnable()
     {
         GameManager.Instance.OnGameStateChanged += OnGameStateChangedEventHandelr;
+        PlayerSpawner.OnBothPlayersConnected += () => StartCoroutine(ShowMessagesBeforeTurn());
     }
     
     private void OnDisable()
     {
         GameManager.Instance.OnGameStateChanged -= OnGameStateChangedEventHandelr;
+        PlayerSpawner.OnBothPlayersConnected -= () => StartCoroutine(ShowMessagesBeforeTurn());
     }
 
     public void AddWinIndicator(int player)
@@ -74,10 +77,16 @@ public class UIManager : MonoBehaviour
                 ShowScreen(_pauseScreen);
                 break;
             case GameState.FirstPlayerWin:
-                ShowScreen(_winScreen);
+                AddOneWinToFirstPlayer();
                 break;
             case GameState.SecondPlayerWin:
-                ShowScreen(_loseScreen);
+                AddOneWinToSecondPlayer();
+                break;
+            case GameState.GameEnded:
+                ShowScreen(_winScreen);
+                string winText = GameManager.Instance.FirstPlayerWins == 2 ? "First " : "Second ";
+                winText += "player wins this battle!";
+                _winText.text = winText;
                 break;
         }
     }
@@ -113,6 +122,24 @@ public class UIManager : MonoBehaviour
 
         HideScreen(_announcerTextLine1.gameObject);
         HideScreen(_announcerTextLine2.gameObject);
+    }
+
+    private void AddOneWinToFirstPlayer()
+    {
+        GameObject indicator = Instantiate(_winIndicator, gameObject.transform.position, Quaternion.identity);
+        indicator.transform.SetParent(_winIndicatorGrids[0].transform);
+        indicator.transform.localScale = new Vector3(1, 1, 1);
+
+        GameManager.Instance.ChangeGameState(GameState.NewTurnStarted);
+    }
+    
+    private void AddOneWinToSecondPlayer()
+    {
+        GameObject indicator = Instantiate(_winIndicator, gameObject.transform.position, Quaternion.identity);
+        indicator.transform.SetParent(_winIndicatorGrids[1].transform);
+        indicator.transform.localScale = new Vector3(1, 1, 1);
+
+        GameManager.Instance.ChangeGameState(GameState.NewTurnStarted);
     }
 
     private void ShowScreen(GameObject screen) => screen.SetActive(true);

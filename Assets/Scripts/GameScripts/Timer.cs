@@ -28,6 +28,9 @@ public class Timer : MonoBehaviour
     {
         switch (state)
         {
+            case GameState.WaitingPlayersToConnect:
+                ResetTimer();
+                break;
             case GameState.NewTurnStarted:
                 ResetTimer();
                 break;

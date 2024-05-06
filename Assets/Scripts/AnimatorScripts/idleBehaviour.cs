@@ -11,12 +11,19 @@ public class idleBehaviour : StateMachineBehaviour
     {
         controller = animator.gameObject.GetComponent<PlayerAttackController>();
         controllerMovement = animator.gameObject.GetComponent<PlayerController>();
+
+        if (GameManager.Instance.CurrentState != GameState.Playing)
+            return;
+
         controllerMovement.CanMove = true;
     }
 
     // OnStateUpdate is called on each Update frame between OnStateEnter and OnStateExit callbacks
     override public void OnStateUpdate(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
+        if (GameManager.Instance.CurrentState != GameState.Playing)
+            return;
+
         if (controller.IsAttacking)
         {
             controllerMovement.CanMove = false;
