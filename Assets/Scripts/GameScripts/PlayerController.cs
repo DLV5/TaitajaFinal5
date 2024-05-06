@@ -15,6 +15,8 @@ public class PlayerController : MonoBehaviour
 
     public float Direction { get; private set; } = 0;
 
+    public bool CanMove { get; set; } = true;
+
     private void Awake()
     {
         _rigidbody2D = GetComponent<Rigidbody2D>();
@@ -34,6 +36,9 @@ public class PlayerController : MonoBehaviour
 
     private void FixedUpdate()
     {
+        if (!CanMove)
+            return;
+
         _rigidbody2D.velocity = new Vector2(Direction * _speed, _rigidbody2D.velocity.y);
     }
 
@@ -53,6 +58,9 @@ public class PlayerController : MonoBehaviour
 
     public void Jump(InputAction.CallbackContext context)
     {
+        if (!CanMove)
+            return;
+
         if (context.performed && IsGrounded())
         {
             _rigidbody2D.velocity = new Vector2(_rigidbody2D.velocity.x, _jumpPower);

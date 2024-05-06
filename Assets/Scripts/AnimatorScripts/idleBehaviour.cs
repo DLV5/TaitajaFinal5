@@ -1,3 +1,4 @@
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class idleBehaviour : StateMachineBehaviour
@@ -9,6 +10,8 @@ public class idleBehaviour : StateMachineBehaviour
     override public void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
         controller = animator.gameObject.GetComponent<PlayerAttackController>();
+        controllerMovement = animator.gameObject.GetComponent<PlayerController>();
+        controllerMovement.CanMove = true;
     }
 
     // OnStateUpdate is called on each Update frame between OnStateEnter and OnStateExit callbacks
@@ -16,10 +19,11 @@ public class idleBehaviour : StateMachineBehaviour
     {
         if (controller.IsAttacking)
         {
+            controllerMovement.CanMove = false;
             animator.Play("Attack1");
         }
 
-        if (controllerMovement.Direction > 0.2)
+        if (Mathf.Abs(controllerMovement.Direction) > 0.2)
         {
             animator.Play("Run");
         }
