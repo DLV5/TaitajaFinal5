@@ -8,6 +8,8 @@ public class AttackHitBox : MonoBehaviour
 
     [SerializeField] private float _actionsDelay = .1f;
 
+    [SerializeField] private string _audioClipName;
+
     private void OnEnable()
     {
         GameManager.Instance.OnGameStateChanged += OnGameStateChangedEventHandelr;
@@ -45,6 +47,9 @@ public class AttackHitBox : MonoBehaviour
     private IEnumerator DamageWithDelay(IDamagable damagable)
     {
         yield return new WaitForSeconds(_actionsDelay);
+
+        AudioManager.Instance.PlaySFX(_audioClipName);
+
         damagable.TakeDamage(_damage);
         gameObject.SetActive(false);
     }

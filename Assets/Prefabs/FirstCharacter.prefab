@@ -48,6 +48,7 @@ MonoBehaviour:
   _damage: 1
   _knockbackPower: 5
   _actionsDelay: 0.1
+  _audioClipName: Attack1
 --- !u!61 &1759455279961630861
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -186,6 +187,7 @@ MonoBehaviour:
   _damage: 1
   _knockbackPower: 5
   _actionsDelay: 0.2
+  _audioClipName: Attack2
 --- !u!1 &4189230051186415888
 GameObject:
   m_ObjectHideFlags: 0
@@ -667,6 +669,7 @@ MonoBehaviour:
   _damage: 3
   _knockbackPower: 5
   _actionsDelay: 0.5
+  _audioClipName: Attack3
 --- !u!1 &7539199463087333023
 GameObject:
   m_ObjectHideFlags: 0

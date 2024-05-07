@@ -12,4 +12,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2b416d6461827fa41a4f3a30e63f6ca8, type: 3}
   m_Name: AudioData
   m_EditorClassIdentifier: 
-  AudioObjects: []
+  AudioObjects:
+  - audioName: BackgroudBattle
+    audioClip: {fileID: 8300000, guid: 330628214fb71b1478564f1d2ba3b5ba, type: 3}
+  - audioName: Attack1
+    audioClip: {fileID: 8300000, guid: dee75873f2590434c89698a38007aa08, type: 3}
+  - audioName: Attack2
+    audioClip: {fileID: 8300000, guid: 6250e54752b75b64bb0dfa46020866f2, type: 3}
+  - audioName: Attack3
+    audioClip: {fileID: 8300000, guid: ac1f21d1fb00d1c4e9fb8f6b629cc8d5, type: 3}

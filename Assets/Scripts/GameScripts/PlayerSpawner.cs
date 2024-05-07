@@ -53,6 +53,8 @@ public class PlayerSpawner : MonoBehaviour
         else
         {
             OnBothPlayersConnected?.Invoke();
+
+            AudioManager.Instance.PlayMusic("BackgroudBattle");
         }
     }
 
