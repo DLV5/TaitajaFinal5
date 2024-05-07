@@ -18,7 +18,7 @@ public class Health : MonoBehaviour, IDamagable
 
     private int _currentHealth;
 
-    private bool _isInvincible;
+    public bool IsInvincible { get; set; }
 
     public int CurrentHealth
     {
@@ -63,7 +63,7 @@ public class Health : MonoBehaviour, IDamagable
 
     public void TakeDamage(int damage)
     {
-        if (_isInvincible) return;
+        if (IsInvincible) return;
 
         CurrentHealth -= damage;
 
@@ -83,9 +83,9 @@ public class Health : MonoBehaviour, IDamagable
 
     private IEnumerator EnterAndExitInvincibility()
     {
-        _isInvincible = true;
+        IsInvincible = true;
         yield return new WaitForSeconds(_invincibilityTime);
-        _isInvincible = false;
+        IsInvincible = false;
     }
 
     private void OnDiedHandler(int id)

@@ -4,6 +4,8 @@ using UnityEngine.InputSystem;
 
 public class PlayerController : MonoBehaviour, IKnockable
 {
+    [SerializeField] private GameObject _defendingEffect;
+
     [SerializeField] private Transform _groundCheck;
     [SerializeField] private LayerMask _groundLayer;
 
@@ -11,16 +13,19 @@ public class PlayerController : MonoBehaviour, IKnockable
     [SerializeField] private float _speed = 5f;
 
     private Rigidbody2D _rigidbody2D;
+    private Health _health;
 
     private bool _isFacingRight = true;
 
     public float Direction { get; private set; } = 0;
 
     public bool CanMove { get; set; } = false;
+    public bool IsDefending { get; set; } = false;
 
     private void Awake()
     {
         _rigidbody2D = GetComponent<Rigidbody2D>();
+        _health = GetComponent<Health>();
     }
 
     private void OnEnable()
@@ -97,6 +102,35 @@ public class PlayerController : MonoBehaviour, IKnockable
         if (context.canceled && _rigidbody2D.velocity.y > 0f)
         {
             _rigidbody2D.velocity = new Vector2(_rigidbody2D.velocity.x, _rigidbody2D.velocity.y * 0.5f);
+        }
+    }
+
+    public void Defend(InputAction.CallbackContext context)
+    {
+        if (GameManager.Instance.CurrentState != GameState.Playing)
+            return;
+
+        if(context.started)
+        {
+            Debug.Log("Defending");
+            CanMove = false;
+            IsDefending = true;
+
+            _rigidbody2D.velocity = Vector2.zero;
+
+            _health.IsInvincible = true;
+
+            _defendingEffect.SetActive(true);
+        }
+
+        if (context.canceled)
+        {
+            Debug.Log("Not defending");
+            CanMove = true;
+            IsDefending = false;
+            _health.IsInvincible = false;
+
+            _defendingEffect.SetActive(false);
         }
     }
 

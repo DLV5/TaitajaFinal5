@@ -14,6 +14,9 @@ public class idleBehaviour : StateMachineBehaviour
         if (GameManager.Instance.CurrentState != GameState.Playing)
             return;
 
+        if (controllerMovement.IsDefending)
+            return;
+
         controllerMovement.CanMove = true;
     }
 
