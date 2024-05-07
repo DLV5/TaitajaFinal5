@@ -125,7 +125,7 @@ public class UIManager : MonoBehaviour
             yield return new WaitForSeconds(1);
         } else
         {
-            _announcerTextLine1.text = "Round " + _roundNumber + 1;
+            _announcerTextLine1.text = "Round " + (_roundNumber + 1);
 
             //yield return new WaitForSeconds(2);
 

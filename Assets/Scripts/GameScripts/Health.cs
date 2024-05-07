@@ -97,7 +97,9 @@ public class Health : MonoBehaviour, IDamagable
 
     private void OnDiedHandler(int id)
     {
-        switch(id)
+        IsInvincible = true;
+
+        switch (id)
         {
             case 0:
                 GameManager.Instance.ChangeGameState(GameState.SecondPlayerWin);

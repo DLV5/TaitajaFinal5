@@ -1,4 +1,5 @@
 using System.Collections;
+using System.Data;
 using UnityEngine;
 
 public class AttackHitBox : MonoBehaviour
@@ -9,6 +10,20 @@ public class AttackHitBox : MonoBehaviour
     [SerializeField] private float _actionsDelay = .1f;
 
     [SerializeField] private string _audioClipName;
+
+    [SerializeField] private float _shakeTime = .1f;
+    [SerializeField] private float _shakeStrenght = 1;
+
+    [SerializeField] private GameObject _hitParticles;
+
+    private CinemachineShake _shake;
+    private ChromaticAberrationEffect _aberrationEffect;
+
+    private void Awake()
+    {
+        _shake = GameObject.Find("Virtual Camera").GetComponent<CinemachineShake>();
+        _aberrationEffect = GameObject.Find("BackgroundBlur").GetComponent<ChromaticAberrationEffect>();
+    }
 
     private void OnEnable()
     {
@@ -45,6 +60,8 @@ public class AttackHitBox : MonoBehaviour
 
             if (damagable != null)
             {
+                StartCoroutine(ParticlesWithDelay(collision.gameObject.transform.position));
+                StartCoroutine(ShakeWithDelay());
                 StartCoroutine(DamageWithDelay(damagable));
             }
 
@@ -57,7 +74,6 @@ public class AttackHitBox : MonoBehaviour
 
         AudioManager.Instance.PlaySFX(_audioClipName);
         
-
         damagable.TakeDamage(_damage);
         gameObject.SetActive(false);
     }
@@ -66,6 +82,24 @@ public class AttackHitBox : MonoBehaviour
     {
         yield return new WaitForSeconds(_actionsDelay);
         knockable.Knockback(_knockbackPower, direction);
+    }  
+    
+    private IEnumerator AberrationWithDelay()
+    {
+        yield return new WaitForSeconds(_actionsDelay);
+        _aberrationEffect.FadeToAberration(_shakeTime);
+    } 
+    
+    private IEnumerator ParticlesWithDelay(Vector2 position)
+    {
+        yield return new WaitForSeconds(_actionsDelay);
+        Instantiate(_hitParticles, position, Quaternion.identity);
+    }
+    
+    private IEnumerator ShakeWithDelay()
+    {
+        yield return new WaitForSeconds(_actionsDelay);
+        _shake.ShakeCamera(_shakeStrenght, _shakeTime);
     }
     
     private IEnumerator FlashWithDelay(FlashEffect _flashEffect)

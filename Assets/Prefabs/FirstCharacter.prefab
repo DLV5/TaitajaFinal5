@@ -49,6 +49,9 @@ MonoBehaviour:
   _knockbackPower: 5
   _actionsDelay: 0.1
   _audioClipName: Attack1
+  _shakeTime: 0.1
+  _shakeStrenght: 1
+  _hitParticles: {fileID: 7097158254324705478, guid: d2bdecf2cd25c3246998c55f94263f1c, type: 3}
 --- !u!61 &1759455279961630861
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -188,6 +191,9 @@ MonoBehaviour:
   _knockbackPower: 5
   _actionsDelay: 0.2
   _audioClipName: Attack2
+  _shakeTime: 0.1
+  _shakeStrenght: 1
+  _hitParticles: {fileID: 7097158254324705478, guid: d2bdecf2cd25c3246998c55f94263f1c, type: 3}
 --- !u!1 &4189230051186415888
 GameObject:
   m_ObjectHideFlags: 0
@@ -685,6 +691,9 @@ MonoBehaviour:
   _knockbackPower: 5
   _actionsDelay: 0.5
   _audioClipName: Attack3
+  _shakeTime: 0.2
+  _shakeStrenght: 2
+  _hitParticles: {fileID: 7097158254324705478, guid: d2bdecf2cd25c3246998c55f94263f1c, type: 3}
 --- !u!1 &7539199463087333023
 GameObject:
   m_ObjectHideFlags: 0
