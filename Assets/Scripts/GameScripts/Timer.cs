@@ -7,6 +7,8 @@ public class Timer : MonoBehaviour
 
     private bool _shoudCount = false;
 
+    private int _countStep = 1;
+
     private int _currentTime;
 
     private void OnEnable()
@@ -55,7 +57,12 @@ public class Timer : MonoBehaviour
         {
             if (_shoudCount)
             {
-                _currentTime -= 1;
+                if(_currentTime <= 0)
+                {
+                    _countStep = -1;
+                }
+
+                _currentTime -= _countStep;
                 UIManager.Instance.LevelTimer.text = _currentTime.ToString();
             }
 
