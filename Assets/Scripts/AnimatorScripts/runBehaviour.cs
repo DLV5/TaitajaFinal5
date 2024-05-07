@@ -15,9 +15,15 @@ public class runBehaviour : StateMachineBehaviour
     // OnStateUpdate is called on each Update frame between OnStateEnter and OnStateExit callbacks
     override public void OnStateUpdate(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
+        if (controllerMovement.IsDefending == true)
+        {
+            animator.Play("Idle");
+        }
+
         if (controller.IsAttacking)
         {
             controllerMovement.CanMove = false;
+            controllerMovement.Rigidbody2D.velocity = Vector2.zero;
             controller.FirstAttackCollider.gameObject.SetActive(true);
             animator.Play("Attack1");
         }

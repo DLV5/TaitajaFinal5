@@ -28,6 +28,9 @@ public class idleBehaviour : StateMachineBehaviour
 
         if (controllerMovement.CanMove == false)
             return;
+        
+        if (controllerMovement.IsDefending == true)
+            return;
 
         if (controller.IsAttacking)
         {

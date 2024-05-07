@@ -198,7 +198,7 @@
                 {
                     "name": "",
                     "id": "863fd912-7628-4e1f-b5fb-12ccb51465e8",
-                    "path": "<XInputController>/leftStick/down",
+                    "path": "<Gamepad>/rightShoulder",
                     "interactions": "",
                     "processors": "",
                     "groups": "Gamepad",

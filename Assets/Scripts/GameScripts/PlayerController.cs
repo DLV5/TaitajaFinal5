@@ -12,19 +12,19 @@ public class PlayerController : MonoBehaviour, IKnockable
     [SerializeField] private float _jumpPower = 5f;
     [SerializeField] private float _speed = 5f;
 
-    private Rigidbody2D _rigidbody2D;
     private Health _health;
 
     private bool _isFacingRight = true;
 
     public float Direction { get; private set; } = 0;
 
+    public Rigidbody2D Rigidbody2D { get; set; }
     public bool CanMove { get; set; } = false;
     public bool IsDefending { get; set; } = false;
 
     private void Awake()
     {
-        _rigidbody2D = GetComponent<Rigidbody2D>();
+        Rigidbody2D = GetComponent<Rigidbody2D>();
         _health = GetComponent<Health>();
     }
 
@@ -53,7 +53,7 @@ public class PlayerController : MonoBehaviour, IKnockable
         if (!CanMove)
             return;
 
-        _rigidbody2D.velocity = new Vector2(Direction * _speed, _rigidbody2D.velocity.y);
+        Rigidbody2D.velocity = new Vector2(Direction * _speed, Rigidbody2D.velocity.y);
     }
 
 
@@ -96,12 +96,12 @@ public class PlayerController : MonoBehaviour, IKnockable
 
         if (context.performed && IsGrounded())
         {
-            _rigidbody2D.velocity = new Vector2(_rigidbody2D.velocity.x, _jumpPower);
+            Rigidbody2D.velocity = new Vector2(Rigidbody2D.velocity.x, _jumpPower);
         }
 
-        if (context.canceled && _rigidbody2D.velocity.y > 0f)
+        if (context.canceled && Rigidbody2D.velocity.y > 0f)
         {
-            _rigidbody2D.velocity = new Vector2(_rigidbody2D.velocity.x, _rigidbody2D.velocity.y * 0.5f);
+            Rigidbody2D.velocity = new Vector2(Rigidbody2D.velocity.x, Rigidbody2D.velocity.y * 0.5f);
         }
     }
 
@@ -110,13 +110,16 @@ public class PlayerController : MonoBehaviour, IKnockable
         if (GameManager.Instance.CurrentState != GameState.Playing)
             return;
 
+        if (!CanMove && !IsDefending)
+            return;
+
         if(context.started)
         {
             Debug.Log("Defending");
             CanMove = false;
             IsDefending = true;
 
-            _rigidbody2D.velocity = Vector2.zero;
+            Rigidbody2D.velocity = Vector2.zero;
 
             _health.IsInvincible = true;
 
@@ -155,7 +158,7 @@ public class PlayerController : MonoBehaviour, IKnockable
     private IEnumerator KnockbackCoroutine(float power, Vector2 direction)
     {
         CanMove = false;
-        _rigidbody2D.velocity = direction * power;
+        Rigidbody2D.velocity = direction * power;
         yield return new WaitForSeconds(.1f);
         CanMove = true;
     }

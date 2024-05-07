@@ -560,6 +560,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _animator: {fileID: 5278548730559624192}
+  _controller: {fileID: 1374218028867611154}
   <FirstAttackCollider>k__BackingField: {fileID: 437418712786449320}
   <SecondAttackCollider>k__BackingField: {fileID: 870485513877872761}
   <ThirdAttackCollider>k__BackingField: {fileID: 5663172792289794001}
