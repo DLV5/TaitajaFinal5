@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Data;
 using UnityEngine;
@@ -16,23 +17,37 @@ public class AttackHitBox : MonoBehaviour
 
     [SerializeField] private GameObject _hitParticles;
 
+    [SerializeField] private Animator _animator;
+
     private CinemachineShake _shake;
     private ChromaticAberrationEffect _aberrationEffect;
+
+    private PlayerController _playerController;
 
     private void Awake()
     {
         _shake = GameObject.Find("Virtual Camera").GetComponent<CinemachineShake>();
         _aberrationEffect = GameObject.Find("BackgroundBlur").GetComponent<ChromaticAberrationEffect>();
+        _playerController = gameObject.transform.parent.GetComponent<PlayerController>();
     }
 
     private void OnEnable()
     {
         GameManager.Instance.OnGameStateChanged += OnGameStateChangedEventHandelr;
+        _playerController.EnterruptAttack += OnAttackEnterrupted;
     }
+
 
     private void OnDisable()
     {
         GameManager.Instance.OnGameStateChanged -= OnGameStateChangedEventHandelr;
+        _playerController.EnterruptAttack -= OnAttackEnterrupted;
+    }
+
+    private void OnAttackEnterrupted()
+    {
+        StopAllCoroutines();
+        _animator.Play("Idle");
     }
 
     private void OnTriggerEnter2D(Collider2D collision)

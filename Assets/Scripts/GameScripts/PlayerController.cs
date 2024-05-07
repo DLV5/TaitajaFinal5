@@ -1,9 +1,12 @@
+using System;
 using System.Collections;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
 public class PlayerController : MonoBehaviour, IKnockable
 {
+    public event Action EnterruptAttack;
+
     [SerializeField] private GameObject _defendingEffect;
 
     [SerializeField] private Transform _groundCheck;
@@ -87,6 +90,11 @@ public class PlayerController : MonoBehaviour, IKnockable
     public void Move(InputAction.CallbackContext context)
     {
         Direction = context.ReadValue<float>();
+
+        if (Mathf.Abs(Direction) > 0.2)
+        {
+            EnterruptAttack?.Invoke();
+        }
     }
 
     public void Jump(InputAction.CallbackContext context)

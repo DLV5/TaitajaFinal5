@@ -8,8 +8,16 @@ public class idleBehaviour : StateMachineBehaviour
     // OnStateEnter is called when a transition starts and the state machine starts to evaluate this state
     override public void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
-        controller = animator.gameObject.GetComponent<PlayerAttackController>();
-        controllerMovement = animator.gameObject.GetComponent<PlayerController>();
+        controller = animator.gameObject.transform.parent.gameObject.
+            transform.parent.gameObject.
+            GetComponent<PlayerAttackController>();
+        controllerMovement = animator.gameObject.transform.parent.gameObject.
+            transform.parent.gameObject.transform.
+            GetComponent<PlayerController>();
+
+        controller.FirstAttackCollider.gameObject.SetActive(false);
+        controller.SecondAttackCollider.gameObject.SetActive(false);
+        controller.ThirdAttackCollider.gameObject.SetActive(false);
 
         if (GameManager.Instance.CurrentState != GameState.Playing)
             return;

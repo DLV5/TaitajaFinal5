@@ -1,0 +1,581 @@
+fileFormatVersion: 2
+guid: f622a6e52724c9844a65009d0ac5d74d
+TextureImporter:
+  internalIDToNameTable: []
+  externalObjects: {}
+  serializedVersion: 12
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 254
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Server
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Hamseri_2
+      rect:
+        serializedVersion: 2
+        x: 2624
+        y: 2317
+        width: 523
+        height: 318
+      alignment: 9
+      pivot: {x: 0.37361497, y: 0.045989797}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e6cabc35a043a654092111c131a53e9b
+      internalID: -275189921
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hamseri_4
+      rect:
+        serializedVersion: 2
+        x: 4210
+        y: 2607
+        width: 521
+        height: 234
+      alignment: 9
+      pivot: {x: 0.043690395, y: 0.91475004}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 02b27853c48ef484b91f6b0bd9c9ed59
+      internalID: 1495002918
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hamseri_6
+      rect:
+        serializedVersion: 2
+        x: 1767
+        y: 1812
+        width: 576
+        height: 649
+      alignment: 9
+      pivot: {x: 0.2667495, y: 0.21383296}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 37f3fa5f537c879469a929c5576636ea
+      internalID: 86085641
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hamseri_7
+      rect:
+        serializedVersion: 2
+        x: 3286
+        y: 2446
+        width: 77
+        height: 26
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 22f5ac449c1d6164d9479b054bc89f17
+      internalID: 437895670
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hamseri_8
+      rect:
+        serializedVersion: 2
+        x: 4186
+        y: 2268
+        width: 521
+        height: 236
+      alignment: 9
+      pivot: {x: 0.03409534, y: 0.80869204}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9497ab1026c11a649bc9ad708549b75a
+      internalID: -308242574
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hamseri_9
+      rect:
+        serializedVersion: 2
+        x: 3294
+        y: 2365
+        width: 71
+        height: 26
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 348b05b6905fe83469bc47c0d5ed3da4
+      internalID: 852984029
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hamseri_10
+      rect:
+        serializedVersion: 2
+        x: 3435
+        y: 2069
+        width: 212
+        height: 176
+      alignment: 9
+      pivot: {x: 0.9113735, y: 0.1895544}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5653dea79762c4c4485657e94ff44564
+      internalID: 344782776
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hamseri_11
+      rect:
+        serializedVersion: 2
+        x: 3789
+        y: 1827
+        width: 282
+        height: 301
+      alignment: 9
+      pivot: {x: 0.15755121, y: 0.8168021}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1eeab0c0d59857649ae033f4c816e391
+      internalID: -904825207
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hamseri_12
+      rect:
+        serializedVersion: 2
+        x: 4211
+        y: 1804
+        width: 284
+        height: 301
+      alignment: 9
+      pivot: {x: 0.10213331, y: 0.8032778}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c9bb7ec761433164b8391b4994b689ab
+      internalID: -429422804
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hamseri_14
+      rect:
+        serializedVersion: 2
+        x: 2186
+        y: 1186
+        width: 617
+        height: 633
+      alignment: 9
+      pivot: {x: 0.67078567, y: 0.6851961}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ce5ec8484ec7dc2469b5a16654e26b26
+      internalID: -323641453
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hamseri_16
+      rect:
+        serializedVersion: 2
+        x: 3179
+        y: 1422
+        width: 406
+        height: 306
+      alignment: 9
+      pivot: {x: 0.112759896, y: 0.8780709}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 307605b3aa13caf45b6a6c6d033fbddd
+      internalID: 45358812
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hamseri_17
+      rect:
+        serializedVersion: 2
+        x: 3710
+        y: 1408
+        width: 406
+        height: 306
+      alignment: 9
+      pivot: {x: 0.09084076, y: 0.85383517}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: daeabfc94dc2e4c45a17613b2ce9d024
+      internalID: 1877873646
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hamseri_18
+      rect:
+        serializedVersion: 2
+        x: 2133
+        y: 679
+        width: 280
+        height: 423
+      alignment: 9
+      pivot: {x: 0.5823181, y: 0.96770966}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 941f3b5467e37ab4a9f5657cc870b1a5
+      internalID: 1328549461
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hamseri_19
+      rect:
+        serializedVersion: 2
+        x: 2553
+        y: 690
+        width: 307
+        height: 411
+      alignment: 9
+      pivot: {x: 0.087060384, y: 0.9533249}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b15a0253bf2d8bd47af1f849f14fdcdf
+      internalID: 696178248
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hamseri_20
+      rect:
+        serializedVersion: 2
+        x: 2958
+        y: 712
+        width: 359
+        height: 371
+      alignment: 9
+      pivot: {x: 0.12547196, y: 0.9038316}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d49f6fe5e0bfbbd489633a1fdefc190f
+      internalID: -333283926
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hamseri_13
+      rect:
+        serializedVersion: 2
+        x: 1382
+        y: 1733
+        width: 156
+        height: 151
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bba64ff9ed8b35246be8d9ba770ff92e
+      internalID: -393081816
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hamseri_3
+      rect:
+        serializedVersion: 2
+        x: 3251
+        y: 2554
+        width: 140
+        height: 161
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 824e736beadd0d140b9b345b3262c335
+      internalID: -1053255835
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hamseri_0
+      rect:
+        serializedVersion: 2
+        x: 3135
+        y: 2827
+        width: 183
+        height: 227
+      alignment: 9
+      pivot: {x: 0.1500371, y: 0.1317983}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: af71c530992d80b479ac93cd4006205f
+      internalID: -1838994724
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hamseri_1
+      rect:
+        serializedVersion: 2
+        x: 1362
+        y: 1799
+        width: 197
+        height: 78
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 58fca42db631f36489e060bffafed707
+      internalID: -1197652110
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hamseri_5
+      rect:
+        serializedVersion: 2
+        x: 1364
+        y: 1728
+        width: 198
+        height: 70
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 38fe743c6623840499e19e1a7a508e59
+      internalID: -957734455
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    nameFileIdTable:
+      Hamseri_0: -1838994724
+      Hamseri_1: -1197652110
+      Hamseri_10: 344782776
+      Hamseri_11: -904825207
+      Hamseri_12: -429422804
+      Hamseri_13: -393081816
+      Hamseri_14: -323641453
+      Hamseri_15: -1280590754
+      Hamseri_16: 45358812
+      Hamseri_17: 1877873646
+      Hamseri_18: 1328549461
+      Hamseri_19: 696178248
+      Hamseri_2: -275189921
+      Hamseri_20: -333283926
+      Hamseri_3: -1053255835
+      Hamseri_4: 1495002918
+      Hamseri_5: -957734455
+      Hamseri_6: 86085641
+      Hamseri_7: 437895670
+      Hamseri_8: -308242574
+      Hamseri_9: 852984029
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

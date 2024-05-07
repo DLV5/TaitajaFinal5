@@ -8,8 +8,12 @@ public class runBehaviour : StateMachineBehaviour
     // OnStateEnter is called when a transition starts and the state machine starts to evaluate this state
     override public void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
-        controller = animator.gameObject.GetComponent<PlayerAttackController>();
-        controllerMovement = animator.gameObject.GetComponent<PlayerController>();
+        controller = animator.gameObject.transform.parent.gameObject.
+            transform.parent.gameObject.
+            GetComponent<PlayerAttackController>();
+        controllerMovement = animator.gameObject.transform.parent.gameObject.
+            transform.parent.gameObject.
+            GetComponent<PlayerController>();
     }
 
     // OnStateUpdate is called on each Update frame between OnStateEnter and OnStateExit callbacks
