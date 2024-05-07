@@ -16,13 +16,17 @@ public class UIManager : MonoBehaviour
 
     private GameObject _winScreen;
     [SerializeField] private TMP_Text _winText;
+
     private GameObject _pauseScreen;
+
+    private int _roundNumber = 0;
 
     [field: SerializeField] public TMP_Text LevelTimer {  get; set; }
 
     public ObjectHUD[] HealthSliders { get; private set; }
 
     public static UIManager Instance { get; private set; }
+
 
     private void Awake()
     {
@@ -98,30 +102,56 @@ public class UIManager : MonoBehaviour
 
         _announcerTextLine2.text = "";
 
-        _announcerTextLine1.text = "Round 1";
+        if(_roundNumber == 0)
+        {
+            _announcerTextLine1.text = "Round 1";
 
-        //yield return new WaitForSeconds(2);
+            //yield return new WaitForSeconds(2);
 
-        //_announcerTextLine1.text = "Prepare to fight";
+            //_announcerTextLine1.text = "Prepare to fight";
 
-        //yield return new WaitForSeconds(1);
+            //yield return new WaitForSeconds(1);
 
-        //_announcerTextLine2.text = "3";
+            //_announcerTextLine2.text = "3";
 
-        //yield return new WaitForSeconds(1);
+            //yield return new WaitForSeconds(1);
 
-        //_announcerTextLine2.text = "2";
+            //_announcerTextLine2.text = "2";
 
-        //yield return new WaitForSeconds(1);
+            //yield return new WaitForSeconds(1);
 
-        //_announcerTextLine2.text = "1";
+            //_announcerTextLine2.text = "1";
 
-        yield return new WaitForSeconds(1);
+            yield return new WaitForSeconds(1);
+        } else
+        {
+            _announcerTextLine1.text = "Round " + _roundNumber + 1;
+
+            //yield return new WaitForSeconds(2);
+
+            //_announcerTextLine1.text = "Prepare to fight";
+
+            //yield return new WaitForSeconds(1);
+
+            //_announcerTextLine2.text = "3";
+
+            //yield return new WaitForSeconds(1);
+
+            //_announcerTextLine2.text = "2";
+
+            //yield return new WaitForSeconds(1);
+
+            //_announcerTextLine2.text = "1";
+            yield return new WaitForSeconds(1);
+        }
+
 
         GameManager.Instance.ChangeGameState(GameState.Playing);
 
         HideScreen(_announcerTextLine1.gameObject);
         HideScreen(_announcerTextLine2.gameObject);
+
+        _roundNumber++;
     }
 
     private void AddOneWinToFirstPlayer()
@@ -130,7 +160,10 @@ public class UIManager : MonoBehaviour
         indicator.transform.SetParent(_winIndicatorGrids[0].transform);
         indicator.transform.localScale = new Vector3(1, 1, 1);
 
-        GameManager.Instance.ChangeGameState(GameState.NewTurnStarted);
+        ShowScreen(_announcerTextLine1.gameObject);
+        _announcerTextLine1.text = "Player one win this round!";
+
+        StartCoroutine(StartNextTurnWithDelay());
     }
     
     private void AddOneWinToSecondPlayer()
@@ -139,9 +172,18 @@ public class UIManager : MonoBehaviour
         indicator.transform.SetParent(_winIndicatorGrids[1].transform);
         indicator.transform.localScale = new Vector3(1, 1, 1);
 
-        GameManager.Instance.ChangeGameState(GameState.NewTurnStarted);
+        ShowScreen(_announcerTextLine1.gameObject);
+        _announcerTextLine1.text = "Player two win this round!";
+
+        StartCoroutine(StartNextTurnWithDelay());
     }
 
     private void ShowScreen(GameObject screen) => screen.SetActive(true);
     private void HideScreen(GameObject screen) => screen.SetActive(false);
+
+    private IEnumerator StartNextTurnWithDelay()
+    {
+        yield return new WaitForSecondsRealtime(2);
+        GameManager.Instance.ChangeGameState(GameState.NewTurnStarted);
+    }
 }

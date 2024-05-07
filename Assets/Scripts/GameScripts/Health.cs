@@ -77,6 +77,13 @@ public class Health : MonoBehaviour, IDamagable
             case GameState.NewTurnStarted:
                 CurrentHealth = _maxHealth;
                 ObjectHUD.SetHUD(_maxHealth, _currentHealth);
+                IsInvincible = false;
+                break;
+            case GameState.FirstPlayerWin:
+                IsInvincible = true;
+                break;
+            case GameState.SecondPlayerWin:
+                IsInvincible = true;
                 break;
         }
     }
