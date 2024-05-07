@@ -1,7 +1,8 @@
+using System.Collections;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-public class PlayerController : MonoBehaviour
+public class PlayerController : MonoBehaviour, IKnockable
 {
     [SerializeField] private Transform _groundCheck;
     [SerializeField] private LayerMask _groundLayer;
@@ -29,6 +30,9 @@ public class PlayerController : MonoBehaviour
 
     private void Update()
     {
+        if (!CanMove)
+            return;
+
         if (!_isFacingRight && Direction > 0f)
         {
             Flip();
@@ -107,5 +111,18 @@ public class PlayerController : MonoBehaviour
         Vector3 localScale = transform.localScale;
         localScale.x *= -1f;
         transform.localScale = localScale;
+    }
+
+    public void Knockback(float power, Vector2 direction)
+    {
+        StartCoroutine(KnockbackCoroutine(power, direction));
+    }
+
+    private IEnumerator KnockbackCoroutine(float power, Vector2 direction)
+    {
+        CanMove = false;
+        _rigidbody2D.velocity = direction * power;
+        yield return new WaitForSeconds(.1f);
+        CanMove = true;
     }
 }

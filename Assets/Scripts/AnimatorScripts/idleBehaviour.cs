@@ -1,5 +1,4 @@
 using UnityEngine;
-using UnityEngine.InputSystem.XR;
 
 public class idleBehaviour : StateMachineBehaviour
 {
@@ -22,6 +21,9 @@ public class idleBehaviour : StateMachineBehaviour
     override public void OnStateUpdate(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
         if (GameManager.Instance.CurrentState != GameState.Playing)
+            return;
+
+        if (controllerMovement.CanMove == false)
             return;
 
         if (controller.IsAttacking)
