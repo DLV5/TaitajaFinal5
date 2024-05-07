@@ -8,6 +8,8 @@ public class Health : MonoBehaviour, IDamagable
 
     private static int _playerID = 0;
 
+    private int _localPlayerID;
+
     public ObjectHUD ObjectHUD { get; set; }
 
     [SerializeField] private int _maxHealth;
@@ -29,14 +31,15 @@ public class Health : MonoBehaviour, IDamagable
 
             if (_currentHealth <= 0)
             {
-                OnDied?.Invoke(_playerID);
+                OnDied?.Invoke(_localPlayerID);
             }
         }
     }
 
     private void Awake()
     {
-        ObjectHUD = FindObjectsByType<ObjectHUD>(FindObjectsSortMode.InstanceID)[_playerID];
+        _localPlayerID = _playerID;
+        ObjectHUD = FindObjectsByType<ObjectHUD>(FindObjectsSortMode.InstanceID)[_localPlayerID];
         _playerID++;
     }
 
@@ -89,10 +92,10 @@ public class Health : MonoBehaviour, IDamagable
     {
         switch(id)
         {
-            case 1:
+            case 0:
                 GameManager.Instance.ChangeGameState(GameState.SecondPlayerWin);
                 break;
-            case 2:
+            case 1:
                 GameManager.Instance.ChangeGameState(GameState.FirstPlayerWin);
                 break;
         }

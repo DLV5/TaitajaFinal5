@@ -84,7 +84,7 @@ public class UIManager : MonoBehaviour
                 break;
             case GameState.GameEnded:
                 ShowScreen(_winScreen);
-                string winText = GameManager.Instance.FirstPlayerWins == 2 ? "First " : "Second ";
+                string winText = GameManager.Instance.FirstPlayerWins >= 2 ? "First " : "Second ";
                 winText += "player wins this battle!";
                 _winText.text = winText;
                 break;
@@ -100,21 +100,21 @@ public class UIManager : MonoBehaviour
 
         _announcerTextLine1.text = "Round 1";
 
-        yield return new WaitForSeconds(2);
+        //yield return new WaitForSeconds(2);
 
-        _announcerTextLine1.text = "Prepare to fight";
+        //_announcerTextLine1.text = "Prepare to fight";
 
-        yield return new WaitForSeconds(1);
+        //yield return new WaitForSeconds(1);
 
-        _announcerTextLine2.text = "3";
+        //_announcerTextLine2.text = "3";
 
-        yield return new WaitForSeconds(1);
+        //yield return new WaitForSeconds(1);
 
-        _announcerTextLine2.text = "2";
+        //_announcerTextLine2.text = "2";
 
-        yield return new WaitForSeconds(1);
+        //yield return new WaitForSeconds(1);
 
-        _announcerTextLine2.text = "1";
+        //_announcerTextLine2.text = "1";
 
         yield return new WaitForSeconds(1);
 
