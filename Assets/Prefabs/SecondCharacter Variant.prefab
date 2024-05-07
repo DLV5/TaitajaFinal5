@@ -8,6 +8,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 401101371051304621, guid: 8f418a6b4e2bebe4ebc289df44a25445, type: 3}
+      propertyPath: _audioClipName
+      value: SwordAttack2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2136425646549054050, guid: 8f418a6b4e2bebe4ebc289df44a25445, type: 3}
+      propertyPath: _audioClipName
+      value: SwordAttack3
+      objectReference: {fileID: 0}
     - target: {fileID: 3522850912019624488, guid: 8f418a6b4e2bebe4ebc289df44a25445, type: 3}
       propertyPath: m_Color.b
       value: 0.08627451
@@ -63,6 +71,10 @@ PrefabInstance:
     - target: {fileID: 4189230051186415888, guid: 8f418a6b4e2bebe4ebc289df44a25445, type: 3}
       propertyPath: m_Name
       value: SecondCharacter Variant
+      objectReference: {fileID: 0}
+    - target: {fileID: 4900402839385833873, guid: 8f418a6b4e2bebe4ebc289df44a25445, type: 3}
+      propertyPath: _audioClipName
+      value: SwordAttack1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

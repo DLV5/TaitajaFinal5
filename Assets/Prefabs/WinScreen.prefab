@@ -280,8 +280,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: You won!
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 16606a8a4ee9f8644a8c54edec9f1ad6, type: 2}
-  m_sharedMaterial: {fileID: 6487227641992892966, guid: 16606a8a4ee9f8644a8c54edec9f1ad6, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: d9949795dcd4abd418677b64d65c67bd, type: 2}
+  m_sharedMaterial: {fileID: 6135047522667968517, guid: d9949795dcd4abd418677b64d65c67bd, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -305,7 +305,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 43.65
+  m_fontSize: 30.2
   m_fontSizeBase: 36
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -516,8 +516,16 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1312742794818617685, guid: 46ed9e712955e364985d7f72cd011fb5, type: 3}
       propertyPath: m_fontSize
-      value: 28.45
+      value: 30.5
       objectReference: {fileID: 0}
+    - target: {fileID: 1312742794818617685, guid: 46ed9e712955e364985d7f72cd011fb5, type: 3}
+      propertyPath: m_fontAsset
+      value: 
+      objectReference: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+    - target: {fileID: 1312742794818617685, guid: 46ed9e712955e364985d7f72cd011fb5, type: 3}
+      propertyPath: m_sharedMaterial
+      value: 
+      objectReference: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
     - target: {fileID: 2174936689617408684, guid: 46ed9e712955e364985d7f72cd011fb5, type: 3}
       propertyPath: m_Name
       value: ContinueButton
@@ -642,8 +650,16 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1312742794818617685, guid: 46ed9e712955e364985d7f72cd011fb5, type: 3}
       propertyPath: m_fontSize
-      value: 28.4
+      value: 30.15
       objectReference: {fileID: 0}
+    - target: {fileID: 1312742794818617685, guid: 46ed9e712955e364985d7f72cd011fb5, type: 3}
+      propertyPath: m_fontAsset
+      value: 
+      objectReference: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+    - target: {fileID: 1312742794818617685, guid: 46ed9e712955e364985d7f72cd011fb5, type: 3}
+      propertyPath: m_sharedMaterial
+      value: 
+      objectReference: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
     - target: {fileID: 2174936689617408684, guid: 46ed9e712955e364985d7f72cd011fb5, type: 3}
       propertyPath: m_Name
       value: MainMenuButton

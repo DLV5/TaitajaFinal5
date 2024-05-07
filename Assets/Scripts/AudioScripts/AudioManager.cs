@@ -1,12 +1,16 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Audio;
+using UnityEngine.UI;
 
 public class AudioManager : MonoBehaviour
 {
     [SerializeField] private AudioSource _sfxSource;
     [SerializeField] private AudioSource _musicSource;
     [SerializeField] private AudioMixer _audioMixer;
+
+    [SerializeField] private Slider _musicSlider;
+    [SerializeField] private Slider _SFXSlider;
 
     private static AudioManager _instance;
     public static AudioManager Instance { get { return _instance; } }
@@ -18,6 +22,7 @@ public class AudioManager : MonoBehaviour
     public const string MUSIC_VOLUME_KEY = "musicVolume";
     public const string SFX_VOLUME_KEY = "sfxVolume";
 
+    private VolumeController _volumeController;
 
     private void Awake()
     {
@@ -30,6 +35,8 @@ public class AudioManager : MonoBehaviour
             _instance = this;
             DontDestroyOnLoad(gameObject);
         }
+
+        _volumeController = new VolumeController(_audioMixer, _musicSlider, _SFXSlider);
     }
 
     private void Start()

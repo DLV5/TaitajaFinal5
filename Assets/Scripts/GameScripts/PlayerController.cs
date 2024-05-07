@@ -22,8 +22,25 @@ public class PlayerController : MonoBehaviour, IKnockable
     public float Direction { get; private set; } = 0;
 
     public Rigidbody2D Rigidbody2D { get; set; }
-    public bool CanMove { get; set; } = false;
-    public bool IsDefending { get; set; } = false;
+
+    private bool _canMove = false;
+    public bool CanMove {
+        get => _canMove;
+        set
+        {
+            _canMove = value;
+
+            if (_canMove == false)
+            {
+                Rigidbody2D.bodyType = RigidbodyType2D.Kinematic;
+            } else
+            {
+                Rigidbody2D.bodyType = RigidbodyType2D.Dynamic;
+            }
+        }
+    }
+
+    public bool IsDefending { get; set; }
 
     private void Awake()
     {

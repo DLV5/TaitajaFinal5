@@ -1,6 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
-using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.Audio;
 using UnityEngine.UI;
@@ -30,7 +27,6 @@ public class VolumeController
     }
     private void ChangeMusicVolume(float value)
     {
-        Debug.Log("CHANGE MUCIS");
         _audioMixer.SetFloat(MIXER_MUSIC, Mathf.Log10(value) * 20f);
     }
     private void ChangeSFXVolume(float value)

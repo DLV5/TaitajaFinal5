@@ -54,6 +54,11 @@ public class AttackHitBox : MonoBehaviour
     {
         if (collision.transform.CompareTag("Player"))
         {
+            PlayerController controller = collision.GetComponent<PlayerController>();
+
+            if (controller.IsDefending)
+                return;
+
             IKnockable knockable = collision.gameObject.GetComponent<IKnockable>();
 
             if(knockable != null)

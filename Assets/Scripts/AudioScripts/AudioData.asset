@@ -23,3 +23,9 @@ MonoBehaviour:
     audioClip: {fileID: 8300000, guid: 6250e54752b75b64bb0dfa46020866f2, type: 3}
   - audioName: Attack3
     audioClip: {fileID: 8300000, guid: ac1f21d1fb00d1c4e9fb8f6b629cc8d5, type: 3}
+  - audioName: SwordAttack1
+    audioClip: {fileID: 8300000, guid: 34b1eb41801512148877e7fe23650780, type: 3}
+  - audioName: SwordAttack2
+    audioClip: {fileID: 8300000, guid: ab5ee457675f9714ab8adaa24e8828a9, type: 3}
+  - audioName: SwordAttack3
+    audioClip: {fileID: 8300000, guid: b53f1d96dff8d834a8aeb82845d4e3d6, type: 3}
