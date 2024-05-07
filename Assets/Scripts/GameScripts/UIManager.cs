@@ -104,23 +104,35 @@ public class UIManager : MonoBehaviour
 
         if(_roundNumber == 0)
         {
+            _announcerTextLine1.text = "The battle begin";
+
+            yield return new WaitForSeconds(2);
+
+            _announcerTextLine1.text = "Battle for survival";
+
+            yield return new WaitForSeconds(2);
+
+            _announcerTextLine1.text = "The winner will have food";
+
+            yield return new WaitForSeconds(2);
+
+            _announcerTextLine1.text = "And looser will <b><color=red>DIE</color></b>!";
+
+            yield return new WaitForSeconds(1.5f);
+
             _announcerTextLine1.text = "Round 1";
 
-            //yield return new WaitForSeconds(2);
+            yield return new WaitForSeconds(.5f);
 
-            //_announcerTextLine1.text = "Prepare to fight";
+            _announcerTextLine2.text = "3";
 
-            //yield return new WaitForSeconds(1);
+            yield return new WaitForSeconds(1);
 
-            //_announcerTextLine2.text = "3";
+            _announcerTextLine2.text = "2";
 
-            //yield return new WaitForSeconds(1);
+            yield return new WaitForSeconds(1);
 
-            //_announcerTextLine2.text = "2";
-
-            //yield return new WaitForSeconds(1);
-
-            //_announcerTextLine2.text = "1";
+            _announcerTextLine2.text = "1";
 
             yield return new WaitForSeconds(1);
         } else
