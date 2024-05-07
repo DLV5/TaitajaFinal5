@@ -15,6 +15,8 @@ public class PlayerController : MonoBehaviour, IKnockable
     [SerializeField] private float _jumpPower = 5f;
     [SerializeField] private float _speed = 5f;
 
+    [SerializeField] private bool _inverseFlip = false;
+
     private Health _health;
 
     private bool _isFacingRight = true;
@@ -58,13 +60,26 @@ public class PlayerController : MonoBehaviour, IKnockable
         if (!CanMove)
             return;
 
-        if (!_isFacingRight && Direction > 0f)
+        if(_inverseFlip)
         {
-            Flip();
-        }
-        else if (_isFacingRight && Direction < 0f)
+            if (!_isFacingRight && Direction < 0f)
+            {
+                Flip();
+            }
+            else if (_isFacingRight && Direction > 0f)
+            {
+                Flip();
+            }
+        } else
         {
-            Flip();
+            if (!_isFacingRight && Direction > 0f)
+            {
+                Flip();
+            }
+            else if (_isFacingRight && Direction < 0f)
+            {
+                Flip();
+            }
         }
     }
 

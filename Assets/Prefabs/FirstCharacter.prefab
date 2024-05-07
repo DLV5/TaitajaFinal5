@@ -2320,7 +2320,7 @@ MonoBehaviour:
   _actionsDelay: 0.15
   _audioClipName: Attack3
   _shakeTime: 0.2
-  _shakeStrenght: 2
+  _shakeStrenght: 3
   _hitParticles: {fileID: 7097158254324705478, guid: d2bdecf2cd25c3246998c55f94263f1c, type: 3}
   _animator: {fileID: 6150703887350169343}
 --- !u!1 &6614187927514469477

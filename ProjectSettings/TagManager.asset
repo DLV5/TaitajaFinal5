@@ -44,3 +44,6 @@ TagManager:
   - name: Hamster
     uniqueID: 3566870819
     locked: 0
+  - name: Rat
+    uniqueID: 141493461
+    locked: 0

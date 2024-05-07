@@ -108,33 +108,33 @@ public class UIManager : MonoBehaviour
 
             yield return new WaitForSeconds(2);
 
-            _announcerTextLine1.text = "Battle for survival";
+            //_announcerTextLine1.text = "Battle for survival";
 
-            yield return new WaitForSeconds(2);
+            //yield return new WaitForSeconds(2);
 
-            _announcerTextLine1.text = "The winner will have food";
+            //_announcerTextLine1.text = "The winner will have food";
 
-            yield return new WaitForSeconds(2);
+            //yield return new WaitForSeconds(2);
 
-            _announcerTextLine1.text = "And looser will <b><color=red>DIE</color></b>!";
+            //_announcerTextLine1.text = "And looser will <b><color=red>DIE</color></b>!";
 
-            yield return new WaitForSeconds(1.5f);
+            //yield return new WaitForSeconds(1.5f);
 
-            _announcerTextLine1.text = "Round 1";
+            //_announcerTextLine1.text = "Round 1";
 
-            yield return new WaitForSeconds(.5f);
+            //yield return new WaitForSeconds(.5f);
 
-            _announcerTextLine2.text = "3";
+            //_announcerTextLine2.text = "3";
 
-            yield return new WaitForSeconds(1);
+            //yield return new WaitForSeconds(1);
 
-            _announcerTextLine2.text = "2";
+            //_announcerTextLine2.text = "2";
 
-            yield return new WaitForSeconds(1);
+            //yield return new WaitForSeconds(1);
 
-            _announcerTextLine2.text = "1";
+            //_announcerTextLine2.text = "1";
 
-            yield return new WaitForSeconds(1);
+            //yield return new WaitForSeconds(1);
         } else
         {
             _announcerTextLine1.text = "Round " + (_roundNumber + 1);
