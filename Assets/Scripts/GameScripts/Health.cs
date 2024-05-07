@@ -20,6 +20,8 @@ public class Health : MonoBehaviour, IDamagable
 
     public bool IsInvincible { get; set; }
 
+    private bool _isDead = false;
+
     public int CurrentHealth
     {
         get { return _currentHealth; }
@@ -29,7 +31,7 @@ public class Health : MonoBehaviour, IDamagable
 
             ObjectHUD.SetHealth(_currentHealth);
 
-            if (_currentHealth <= 0)
+            if (_currentHealth <= 0 && !IsInvincible)
             {
                 OnDied?.Invoke(_localPlayerID);
             }
@@ -78,6 +80,7 @@ public class Health : MonoBehaviour, IDamagable
                 CurrentHealth = _maxHealth;
                 ObjectHUD.SetHUD(_maxHealth, _currentHealth);
                 IsInvincible = false;
+                _isDead = false;
                 break;
             case GameState.FirstPlayerWin:
                 IsInvincible = true;
@@ -97,7 +100,10 @@ public class Health : MonoBehaviour, IDamagable
 
     private void OnDiedHandler(int id)
     {
-        IsInvincible = true;
+        if (_isDead)
+            return;
+
+        _isDead = true;
 
         switch (id)
         {

@@ -47,7 +47,6 @@ public class GameManager : MonoBehaviour
 
         if (FirstPlayerWins == _maxWins || SecondPlayerWins == _maxWins)
         {
-            Debug.Log("Show end screen");
             ChangeGameState(GameState.GameEnded);
         }
 
@@ -71,7 +70,6 @@ public class GameManager : MonoBehaviour
 
         if (FirstPlayerWins == _maxWins || SecondPlayerWins == _maxWins)
         {
-            Debug.Log("Show end screen");
             ChangeGameState(GameState.GameEnded);
         }
 
