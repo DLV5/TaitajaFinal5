@@ -98,65 +98,82 @@ public class UIManager : MonoBehaviour
     private IEnumerator ShowMessagesBeforeTurn()
     {
         ShowScreen(_announcerTextLine1.gameObject);
-        ShowScreen(_announcerTextLine2.gameObject);
 
         _announcerTextLine2.text = "";
 
         if(_roundNumber == 0)
         {
-            _announcerTextLine1.text = "The battle begin";
+            _announcerTextLine1.text = "The battle begins";
 
             yield return new WaitForSeconds(2);
 
-            //_announcerTextLine1.text = "Battle for survival";
+            _announcerTextLine1.text = "Battle for survival";
 
-            //yield return new WaitForSeconds(2);
+            yield return new WaitForSeconds(2);
 
-            //_announcerTextLine1.text = "The winner will have food";
+            _announcerTextLine1.text = "The winner will have food";
 
-            //yield return new WaitForSeconds(2);
+            yield return new WaitForSeconds(2);
 
-            //_announcerTextLine1.text = "And looser will <b><color=red>DIE</color></b>!";
+            _announcerTextLine1.text = "And looser will <b><color=red>DIE</color></b>!";
 
-            //yield return new WaitForSeconds(1.5f);
+            yield return new WaitForSeconds(1.5f);
 
-            //_announcerTextLine1.text = "Round 1";
+            _announcerTextLine1.text = "Round 1";
 
-            //yield return new WaitForSeconds(.5f);
+            yield return new WaitForSeconds(.5f);
 
-            //_announcerTextLine2.text = "3";
+            HideScreen(_announcerTextLine2.gameObject);
+            ShowScreen(_announcerTextLine2.gameObject);
+            _announcerTextLine2.text = "3";
 
-            //yield return new WaitForSeconds(1);
+            yield return new WaitForSeconds(1);
 
-            //_announcerTextLine2.text = "2";
+            HideScreen(_announcerTextLine2.gameObject);
+            ShowScreen(_announcerTextLine2.gameObject);
+            _announcerTextLine2.text = "2";
 
-            //yield return new WaitForSeconds(1);
+            yield return new WaitForSeconds(1);
 
-            //_announcerTextLine2.text = "1";
+            HideScreen(_announcerTextLine2.gameObject);
+            ShowScreen(_announcerTextLine2.gameObject);
+            _announcerTextLine2.text = "1";
 
-            //yield return new WaitForSeconds(1);
-        } else
+            yield return new WaitForSeconds(1);
+        }
+        else
         {
             _announcerTextLine1.text = "Round " + (_roundNumber + 1);
 
-            //yield return new WaitForSeconds(2);
+            yield return new WaitForSeconds(2);
 
-            //_announcerTextLine1.text = "Prepare to fight";
+            _announcerTextLine1.text = "Prepare to fight";
 
-            //yield return new WaitForSeconds(1);
+            yield return new WaitForSeconds(1);
 
-            //_announcerTextLine2.text = "3";
+            HideScreen(_announcerTextLine2.gameObject);
+            ShowScreen(_announcerTextLine2.gameObject);
+            _announcerTextLine2.text = "3";
 
-            //yield return new WaitForSeconds(1);
+            yield return new WaitForSeconds(1);
 
-            //_announcerTextLine2.text = "2";
+            HideScreen(_announcerTextLine2.gameObject);
+            ShowScreen(_announcerTextLine2.gameObject);
+            _announcerTextLine2.text = "2";
 
-            //yield return new WaitForSeconds(1);
+            yield return new WaitForSeconds(1);
 
-            //_announcerTextLine2.text = "1";
+            HideScreen(_announcerTextLine2.gameObject);
+            ShowScreen(_announcerTextLine2.gameObject);
+            _announcerTextLine2.text = "1";
             yield return new WaitForSeconds(1);
         }
 
+        HideScreen(_announcerTextLine2.gameObject);
+        ShowScreen(_announcerTextLine2.gameObject);
+        _announcerTextLine2.text = "Fight!";
+
+        yield return new WaitForSeconds(.5f);
 
         GameManager.Instance.ChangeGameState(GameState.Playing);
 
