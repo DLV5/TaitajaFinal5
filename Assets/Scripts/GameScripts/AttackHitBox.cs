@@ -34,6 +34,13 @@ public class AttackHitBox : MonoBehaviour
                 StartCoroutine(KnockbackWithDelay(knockable, direction));
             }
 
+            FlashEffect flashEffect = collision.gameObject.GetComponent<FlashEffect>();
+
+            if(flashEffect != null)
+            {
+                StartCoroutine(FlashWithDelay(flashEffect));
+            }
+
             IDamagable damagable = collision.gameObject.GetComponent<IDamagable>();
 
             if (damagable != null)
@@ -49,6 +56,7 @@ public class AttackHitBox : MonoBehaviour
         yield return new WaitForSeconds(_actionsDelay);
 
         AudioManager.Instance.PlaySFX(_audioClipName);
+        
 
         damagable.TakeDamage(_damage);
         gameObject.SetActive(false);
@@ -56,9 +64,14 @@ public class AttackHitBox : MonoBehaviour
     
     private IEnumerator KnockbackWithDelay(IKnockable knockable, Vector2 direction)
     {
-        Debug.LogWarning("Knocking back");
         yield return new WaitForSeconds(_actionsDelay);
         knockable.Knockback(_knockbackPower, direction);
+    }
+    
+    private IEnumerator FlashWithDelay(FlashEffect _flashEffect)
+    {
+        yield return new WaitForSeconds(_actionsDelay);
+        _flashEffect.Flash(.25f);
     }
 
     private void OnGameStateChangedEventHandelr(GameState state)

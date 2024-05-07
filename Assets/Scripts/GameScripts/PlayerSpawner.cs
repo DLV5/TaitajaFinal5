@@ -64,5 +64,7 @@ public class PlayerSpawner : MonoBehaviour
         {
             _spawnedPlayers[i].gameObject.transform.position = _spawnPositions[i].position;
         }
+
+        AudioManager.Instance.PlayMusic("BackgroudBattleShorter");
     }
 }

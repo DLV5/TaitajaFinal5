@@ -15,6 +15,8 @@ MonoBehaviour:
   AudioObjects:
   - audioName: BackgroudBattle
     audioClip: {fileID: 8300000, guid: 330628214fb71b1478564f1d2ba3b5ba, type: 3}
+  - audioName: BackgroudBattleShorter
+    audioClip: {fileID: 8300000, guid: 64b62d545b2f7a44db21cc1421b74724, type: 3}
   - audioName: Attack1
     audioClip: {fileID: 8300000, guid: dee75873f2590434c89698a38007aa08, type: 3}
   - audioName: Attack2
